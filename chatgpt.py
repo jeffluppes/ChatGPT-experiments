@@ -15,10 +15,10 @@ MODEL = config.get("ChatGPT", "model")
 def generate_career_advice_prompts(resume: str) -> dict:
     logger.info("Creating prompts based on your resume..")
     prompts = [
-        "Give career advice, focusing on the next job, based on the following resume:",
+        "Give career advice, focusing on potential next jobs (titles), based on the following resume:",
         "At a high level, what would improve the following resume to pass HR screening?",
         "Can you summarize the following resume for me?",
-        "how many years of experience does the following resume have?",
+        "how many years of experience does the following resume have in the candidates main field?",
         "How senior in their main field is the candidate in the following resume: ",
         "Can you find any errors or grammatical mistakes in the following resume:",
     ]
@@ -30,12 +30,13 @@ def generate_job_posting_prompts(posting: str) -> dict:
     prompts = [
         "How would you improve the following job posting?",
         "What is the reading level needed to understand the following job posting: ",
-        "How would you make the following job posting appeal more to millenials?",
+        "How would you make the following job posting appeal more to younger candidates?",
         "Can you summarize this job posting?",
         "Can you see any red flags in the following job posting?",
         "What is the seniority needed in the main field of the following job posting: ",
         "can you find any errors or grammatical mistakes in the following text: ",
         "What are the main skills needed for the following job:",
+        "How hard do you think this job is?",
     ]
     return [{"prompt": p, "text": f"{p} \n{posting}"} for p in prompts]
 
