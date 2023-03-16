@@ -22,7 +22,7 @@ def generate_career_advice_prompts(resume: str) -> dict:
         "How senior in their main field is the candidate in the following resume: ",
         "Can you find any errors or grammatical mistakes in the following resume:",
     ]
-    return [{"prompt": {p}, "text": f"{p} \n{resume}"} for p in prompts]
+    return [{"prompt": p, "text": f"{p} \n{resume}"} for p in prompts]
 
 
 def generate_job_posting_prompts(posting: str) -> dict:
@@ -37,7 +37,7 @@ def generate_job_posting_prompts(posting: str) -> dict:
         "can you find any errors or grammatical mistakes in the following text: ",
         "What are the main skills needed for the following job:",
     ]
-    return [{"prompt": {p}, "text": f"{p} \n{posting}"} for p in prompts]
+    return [{"prompt": p, "text": f"{p} \n{posting}"} for p in prompts]
 
 
 def get_chatgpt_response(prompt: str) -> dict:
